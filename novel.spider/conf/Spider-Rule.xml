@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sites>
+<site>
+<title>顶点小说</title> 
+<charset>GBK</charset>
+<url>http://www.x23us.com</url>
+<chapter-list-selector>#at td a</chapter-list-selector>
+<chapter-detail-title-selector>#amain h1</chapter-detail-title-selector>
+<chapter-detail-content-selector>#contents</chapter-detail-content-selector>
+<chapter-detail-prev-selector>#footlink a</chapter-detail-prev-selector> 
+<chapter-datail-next-selector>#footlink a,2</chapter-datail-next-selector>
+</site>
+<site>
+<title>笔趣阁</title> 
+<charset>UTF-8</charset>
+<url>http://www.biquge.tw</url>
+<chapter-list-selector>#list dd a</chapter-list-selector>
+<chapter-detail-title-selector>.bookname h1</chapter-detail-title-selector>
+<chapter-detail-content-selector>#content</chapter-detail-content-selector>
+<chapter-detail-prev-selector>#pager_prev</chapter-detail-prev-selector> 
+<chapter-datail-next-selector>#pager_next</chapter-datail-next-selector>
+</site>
+<site>
+<title>笔下文学</title> 
+<charset>GBK</charset>
+<url>http://www.bxwx9.org</url>
+<chapter-list-selector>#TabCss dd a</chapter-list-selector>
+<chapter-detail-title-selector>#title</chapter-detail-title-selector>
+<chapter-detail-content-selector>#content</chapter-detail-content-selector>
+<chapter-detail-prev-selector>#footlink a,2</chapter-detail-prev-selector> 
+<chapter-datail-next-selector>#footlink a,4</chapter-datail-next-selector>
+<novel-selector>.grid  tr</novel-selector>
+<novel-next-page-selector>#pagelink .next</novel-next-page-selector>
+</site>
+<site>
+<title>新爱尚</title> 
+<charset>GBK</charset>
+<url>http://www.xaishang.com</url>
+<chapter-list-selector>.L a</chapter-list-selector>
+<chapter-detail-title-selector>#amain h1</chapter-detail-title-selector>
+<chapter-detail-content-selector>#contents </chapter-detail-content-selector>
+<chapter-detail-prev-selector>dd h3 a,0</chapter-detail-prev-selector> 
+<chapter-datail-next-selector>dd h3 a,2</chapter-datail-next-selector>
+</site>
+</sites>

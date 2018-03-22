@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="novel.storage.mapper.NovelMapper" >
+  <resultMap id="BaseResultMap" type="novel.spider.entitys.Novel" >
+    <id column="name" property="name" jdbcType="VARCHAR" />
+    <id column="author" property="author" jdbcType="VARCHAR" />
+    <id column="platform_id" property="platformId" jdbcType="INTEGER" />
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="last_update_chapter" property="lastUpdateChapter" jdbcType="VARCHAR" />
+    <result column="last_update_url" property="lastUpdateUrl" jdbcType="VARCHAR" />
+    <result column="last_update_time" property="lastUpdateTime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="frist_letter" property="fristLetter" jdbcType="CHAR" />
+    <result column="add_time" property="addTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    name, author, platform_id, id, url, type, last_update_chapter, last_update_url, last_update_time, 
+    status, frist_letter, add_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="novel.spider.entitys.NovelKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_novel
+    where name = #{name,jdbcType=VARCHAR}
+      and author = #{author,jdbcType=VARCHAR}
+      and platform_id = #{platformId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="novel.spider.entitys.NovelKey" >
+    delete from tbl_novel
+    where name = #{name,jdbcType=VARCHAR}
+      and author = #{author,jdbcType=VARCHAR}
+      and platform_id = #{platformId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="novel.spider.entitys.Novel" >
+    insert into tbl_novel (name, author, platform_id, 
+      id, url, type, last_update_chapter, 
+      last_update_url, last_update_time, status, 
+      frist_letter, add_time)
+    values (#{name,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, #{platformId,jdbcType=INTEGER}, 
+      #{id,jdbcType=INTEGER}, #{url,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{lastUpdateChapter,jdbcType=VARCHAR}, 
+      #{lastUpdateUrl,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, 
+      #{fristLetter,jdbcType=CHAR}, #{addTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="novel.spider.entitys.Novel" >
+    insert into tbl_novel
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="author != null" >
+        author,
+      </if>
+      <if test="platformId != null" >
+        platform_id,
+      </if>
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="lastUpdateChapter != null" >
+        last_update_chapter,
+      </if>
+      <if test="lastUpdateUrl != null" >
+        last_update_url,
+      </if>
+      <if test="lastUpdateTime != null" >
+        last_update_time,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="fristLetter != null" >
+        frist_letter,
+      </if>
+      <if test="addTime != null" >
+        add_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null" >
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="platformId != null" >
+        #{platformId,jdbcType=INTEGER},
+      </if>
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateChapter != null" >
+        #{lastUpdateChapter,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateUrl != null" >
+        #{lastUpdateUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null" >
+        #{lastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="fristLetter != null" >
+        #{fristLetter,jdbcType=CHAR},
+      </if>
+      <if test="addTime != null" >
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="novel.spider.entitys.Novel" >
+    update tbl_novel
+    <set >
+      <if test="id != null" >
+        id = #{id,jdbcType=INTEGER},
+      </if>
+      <if test="url != null" >
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateChapter != null" >
+        last_update_chapter = #{lastUpdateChapter,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateUrl != null" >
+        last_update_url = #{lastUpdateUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null" >
+        last_update_time = #{lastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="fristLetter != null" >
+        frist_letter = #{fristLetter,jdbcType=CHAR},
+      </if>
+      <if test="addTime != null" >
+        add_time = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where name = #{name,jdbcType=VARCHAR}
+      and author = #{author,jdbcType=VARCHAR}
+      and platform_id = #{platformId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="novel.spider.entitys.Novel" >
+    update tbl_novel
+    set 
+      url = #{url,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      last_update_chapter = #{lastUpdateChapter,jdbcType=VARCHAR},
+      last_update_url = #{lastUpdateUrl,jdbcType=VARCHAR},
+      last_update_time = #{lastUpdateTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      frist_letter = #{fristLetter,jdbcType=CHAR},
+      add_time = #{addTime,jdbcType=TIMESTAMP}
+    where name = #{name,jdbcType=VARCHAR}
+      and author = #{author,jdbcType=VARCHAR}
+      and platform_id = #{platformId,jdbcType=INTEGER}
+  </update>
+</mapper>
